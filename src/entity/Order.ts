@@ -18,7 +18,7 @@ export class Order {
         this.client = client;
         this.setClient(client)
 
-        for (let i = 0; i < faker.number.int({min: 1, max: 5}); i++) {
+        for (let i = 0; i < faker.number.int({min: 1, max: 4}); i++) {
             this.addOrderProduct(new OrderProduct(this))
         }
     }

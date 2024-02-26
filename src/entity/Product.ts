@@ -1,5 +1,6 @@
 import {faker} from "@faker-js/faker";
 import {OrderProduct} from "./OrderProduct.js";
+import {Provider} from "./Provider.js";
 
 export class Product {
     private static products: Product[] = [];
@@ -10,6 +11,7 @@ export class Product {
     private readonly price: number;
     private readonly description: string;
     private orderProducts: OrderProduct[] = [];
+    private provider: Provider;
 
     constructor() {
         Product.products.push(this);
@@ -22,6 +24,9 @@ export class Product {
             fractionDigits: 2
         });
         this.description = faker.commerce.productDescription();
+
+        this.provider = faker.helpers.arrayElement(Provider.getEntities());
+        this.setProvider(this.provider);
     }
 
     getUuid() {
@@ -35,12 +40,18 @@ export class Product {
         }
     }
 
+    setProvider(provider: Provider) {
+        this.provider = provider;
+        provider.addProduct(this);
+    }
+
     toJSON() {
         return {
             uuid: this.uuid,
             name: this.name,
             price: this.price,
             description: this.description,
+            provider: this.provider.getUuid(),
             orderProducts: this.orderProducts.map(orderProduct => orderProduct.getUuid())
         }
     }

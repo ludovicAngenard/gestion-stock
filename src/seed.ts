@@ -42,7 +42,7 @@ const main = async () => {
 
     console.time('Generating data')
 
-    const numberOfClients = faker.number.int({min: 1000, max: 1250})
+    const numberOfClients = faker.number.int({min: 700, max: 1000})
     const spinner = ora(`Generating client (0/${numberOfClients})`).start();
     Array.from({length: numberOfClients}).map((_, index) => {
         const client = new Client()
@@ -54,7 +54,7 @@ const main = async () => {
     })
     spinner.succeed()
 
-    const numberOfProduct = faker.number.int({min: 500, max: 750})
+    const numberOfProduct = faker.number.int({min: 250, max: 500})
     spinner.text = `Generating product (0/${numberOfProduct})`
     Array.from({length: numberOfProduct}).map((_, index) => {
         const product = new Product()
@@ -80,7 +80,7 @@ const main = async () => {
 
     spinner.text = `Create order for client (0/${Client.getEntities().length})`
     Client.getEntities().forEach((client, index) => {
-        const numberOfOrder = faker.number.int({min: 0, max: 5})
+        const numberOfOrder = faker.number.int({min: 0, max: 3})
 
         Array.from({length: numberOfOrder}).forEach(() => {
             const order = new Order(client)

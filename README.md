@@ -19,7 +19,7 @@ touch .env
 ```
 5. Ajouter les variables d'environnement
 ```env
-PORT=3000
+PORT=27017
 DB_HOST=localhost
 DB_NAME=TP1
 ```

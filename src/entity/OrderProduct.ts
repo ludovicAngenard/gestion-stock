@@ -18,6 +18,7 @@ export class OrderProduct {
         this.quantity = faker.number.int({min: 1, max: 15});
 
         this.product = faker.helpers.arrayElement(Product.getEntities());
+        this.setProduct(this.product);
 
         this.order = order;
         this.setOrder(order)

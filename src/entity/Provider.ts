@@ -1,5 +1,6 @@
 import {faker} from "@faker-js/faker";
 import {Address} from "./Address.js";
+import {Product} from "./Product.js";
 
 export class Provider {
     private static providers: Provider[] = [];
@@ -8,6 +9,7 @@ export class Provider {
     private readonly uuid: string;
     private readonly name: string;
     private address: Address;
+    private products: Product[] = [];
 
     constructor() {
         Provider.providers.push(this);
@@ -28,11 +30,19 @@ export class Provider {
         address.addProvider(this);
     }
 
+    addProduct(product: Product) {
+        if (!this.products.some(p => p.getUuid() === product.getUuid())) {
+            this.products.push(product)
+            product.setProvider(this)
+        }
+    }
+
     toJSON() {
         return {
             uuid: this.uuid,
             name: this.name,
-            address: this.address.getUuid()
+            address: this.address.getUuid(),
+            provider: this.products.map(product => product.getUuid())
         }
     }
 
