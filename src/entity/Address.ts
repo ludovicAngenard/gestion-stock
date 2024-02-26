@@ -48,9 +48,7 @@ export class Address {
             country: this.country,
             zipCode: this.zipCode,
             city: this.city,
-            streetAddress: this.streetAddress,
-            clients: this.clients.map(c => c.getUuid()),
-            providers: this.providers.map(p => p.getUuid())
+            streetAddress: this.streetAddress
         }
     }
 

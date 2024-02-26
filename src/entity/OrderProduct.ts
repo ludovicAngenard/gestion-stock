@@ -57,7 +57,7 @@ export class OrderProduct {
     toJSONForProduct() {
         return {
             quantity: this.quantity,
-            product: this.product.getUuid()
+            order: this.order.getUuid()
         }
     }
 

@@ -48,7 +48,7 @@ export class Client {
             lastName: this.lastName,
             email: this.email,
             dateOfBirth: this.dateOfBirth.toISOString(),
-            address: this.address.getUuid(),
+            address: this.address.toJSON(),
             orders: this.orders.map(order => order.getUuid())
         }
     }
