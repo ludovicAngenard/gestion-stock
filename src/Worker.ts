@@ -15,7 +15,7 @@ export class Worker {
     addSaveEntity<E extends {
         name: string
         getEntities: () => {
-            toJSON: () => unknown
+            toJSONLeft: () => unknown
         }[]
     }>(collection: Collection, entities: E[]) {
         for (const entity of entities) {
@@ -23,7 +23,7 @@ export class Worker {
                 this.toLoad.push(async () => {
                     await collection.updateOne({}, {
                         $push: {
-                            [entity.name]: e.toJSON()
+                            [entity.name]: e.toJSONLeft()
                         }
                     })
                 })

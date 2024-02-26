@@ -44,12 +44,15 @@ export class Address {
 
     toJSON() {
         return {
-            uuid: this.uuid,
             country: this.country,
             zipCode: this.zipCode,
             city: this.city,
             streetAddress: this.streetAddress
         }
+    }
+
+    toJSONLeft() {
+        return this.toJSON()
     }
 
     static getEntities() {

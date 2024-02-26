@@ -49,11 +49,17 @@ export class Product {
 
     toJSON() {
         return {
-            uuid: this.uuid,
             name: this.name,
             price: this.price,
             quantity: this.quantity,
             description: this.description,
+        }
+    }
+
+    toJSONLeft() {
+        return {
+            uuid: this.uuid,
+            ...this.toJSON(),
             provider: this.provider.getUuid(),
             order: this.orderProducts.map(orderProduct => orderProduct.getUuid())
         }

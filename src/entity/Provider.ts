@@ -39,9 +39,15 @@ export class Provider {
 
     toJSON() {
         return {
-            uuid: this.uuid,
             name: this.name,
-            address: this.address.toJSON(),
+            address: this.address.toJSON()
+        }
+    }
+
+    toJSONLeft() {
+        return {
+            uuid: this.uuid,
+            ...this.toJSON(),
             products: this.products.map(product => product.getUuid())
         }
     }

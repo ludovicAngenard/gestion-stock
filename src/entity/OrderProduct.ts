@@ -40,23 +40,20 @@ export class OrderProduct {
 
     toJSON() {
         return {
-            uuid: this.uuid,
             quantity: this.quantity,
-            order: this.order.getUuid(),
+        }
+    }
+
+    toJSONLeftForOrder() {
+        return {
+            ...this.toJSON(),
             product: this.product.getUuid()
         }
     }
 
-    toJSONForOrder() {
+    toJSONLeftForProduct() {
         return {
-            quantity: this.quantity,
-            product: this.product.getUuid()
-        }
-    }
-
-    toJSONForProduct() {
-        return {
-            quantity: this.quantity,
+            ...this.toJSON(),
             order: this.order.getUuid()
         }
     }

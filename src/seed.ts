@@ -24,20 +24,14 @@ const main = async () => {
     await client.connect();
     console.time('Connected successfully to server');
     const db = client.db(process.env.DB_NAME);
-    const gestionStock = db.collection('gestion-stock');
+    const gestionStock = db.collection('stock');
     console.timeEnd('Connection time')
 
     console.time("Cleaning up the database")
     await gestionStock.deleteMany({});
     console.timeEnd("Cleaning up the database")
 
-    await gestionStock.insertOne({
-        clients: [],
-        addresses: [],
-        products: [],
-        providers: [],
-        orders: []
-    })
+    await gestionStock.insertOne({})
 
     console.time('Generating data')
 

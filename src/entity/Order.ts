@@ -38,11 +38,11 @@ export class Order {
         }
     }
 
-    toJSON() {
+    toJSONLeft() {
         return {
             uuid: this.uuid,
             client: this.client.getUuid(),
-            order: this.orderProducts.map(orderProduct => orderProduct.toJSONForOrder())
+            orderProducts: this.orderProducts.map(orderProduct => orderProduct.toJSONLeftForOrder())
         }
     }
 

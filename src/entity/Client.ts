@@ -43,12 +43,18 @@ export class Client {
 
     toJSON() {
         return {
-            uuid: this.uuid,
             firstName: this.firstName,
             lastName: this.lastName,
             email: this.email,
             dateOfBirth: this.dateOfBirth.toISOString(),
             address: this.address.toJSON(),
+        }
+    }
+
+    toJSONLeft() {
+        return {
+            uuid: this.uuid,
+            ...this.toJSON(),
             orders: this.orders.map(order => order.getUuid())
         }
     }
