@@ -55,7 +55,7 @@ export class Product {
             quantity: this.quantity,
             description: this.description,
             provider: this.provider.getUuid(),
-            orderProducts: this.orderProducts.map(orderProduct => orderProduct.toJSONForProduct())
+            order: this.orderProducts.map(orderProduct => orderProduct.getUuid())
         }
     }
 
