@@ -42,7 +42,7 @@ export class Order {
         return {
             uuid: this.uuid,
             client: this.client.getUuid(),
-            orderProducts: this.orderProducts.map(orderProduct => orderProduct.getUuid())
+            orderProducts: this.orderProducts.map(orderProduct => orderProduct.toJSONForOrder())
         }
     }
 

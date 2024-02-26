@@ -36,8 +36,7 @@ const main = async () => {
         addresses: [],
         products: [],
         providers: [],
-        orders: [],
-        orderProducts: []
+        orders: []
     })
 
     console.time('Generating data')
@@ -98,7 +97,7 @@ const main = async () => {
 
     console.time('Insert time')
     const worker = new Worker(spinner)
-    worker.addSaveEntity(gestionStock, [Client, Address, Product, Provider, Order, OrderProduct])
+    worker.addSaveEntity(gestionStock, [Client, Address, Product, Provider, Order])
     await worker.save()
     console.timeEnd('Insert time')
 };

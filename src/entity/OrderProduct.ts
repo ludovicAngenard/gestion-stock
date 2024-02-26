@@ -47,6 +47,20 @@ export class OrderProduct {
         }
     }
 
+    toJSONForOrder() {
+        return {
+            quantity: this.quantity,
+            product: this.product.getUuid()
+        }
+    }
+
+    toJSONForProduct() {
+        return {
+            quantity: this.quantity,
+            product: this.product.getUuid()
+        }
+    }
+
     static getEntities() {
         return OrderProduct.orderProducts;
     }
