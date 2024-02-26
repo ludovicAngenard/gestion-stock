@@ -1,0 +1,19 @@
+{
+  "name": "gestion-stock",
+  "version": "0.1.0",
+  "scripts": {
+    "seed": "ts-node src/seed.ts",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "type": "module",
+  "author": "Wykaz",
+  "devDependencies": {
+    "@faker-js/faker": "^8.4.1",
+    "@types/node": "^20.11.20",
+    "dotenv": "^16.4.5",
+    "mongodb": "^6.3.0",
+    "ora": "^8.0.1",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.3.3"
+  }
+}
