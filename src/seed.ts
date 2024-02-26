@@ -54,18 +54,6 @@ const main = async () => {
     })
     spinner.succeed()
 
-    const numberOfProduct = faker.number.int({min: 250, max: 500})
-    spinner.text = `Generating product (0/${numberOfProduct})`
-    Array.from({length: numberOfProduct}).map((_, index) => {
-        const product = new Product()
-        spinner.text = `Generating product (${index + 1}/${numberOfProduct})`
-        if (index % 11 === 0) {
-            spinner.render()
-        }
-        return product
-    })
-    spinner.succeed()
-
     const numberOfProvider = faker.number.int({min: 100, max: 200})
     spinner.text = `Generating provider (0/${numberOfProvider})`
     Array.from({length: numberOfProvider}).map((_, index) => {
@@ -75,6 +63,18 @@ const main = async () => {
             spinner.render()
         }
         return provider
+    })
+    spinner.succeed()
+
+    const numberOfProduct = faker.number.int({min: 250, max: 500})
+    spinner.text = `Generating product (0/${numberOfProduct})`
+    Array.from({length: numberOfProduct}).map((_, index) => {
+        const product = new Product()
+        spinner.text = `Generating product (${index + 1}/${numberOfProduct})`
+        if (index % 11 === 0) {
+            spinner.render()
+        }
+        return product
     })
     spinner.succeed()
 
